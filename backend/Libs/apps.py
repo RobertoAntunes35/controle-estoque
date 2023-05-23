@@ -10,9 +10,14 @@ class ConversionExcel:
             raise TypeError('Não há suporte para a extensão: %s ' % filename.rsplit('.')[1])    
         try:
             self.fileExcel = pd.read_excel(path + filename).rename(columns=columns)
+            print('Importação e alteração das colunas realizada com sucesso.')
 
         except Exception as error:
             print(type(error).__name__)
 
     def matrizDados(self):
         pass
+
+arquivo = ConversionExcel('\%s' % FILES[0]['FILE_CLIENTES'][0], **FILES[0]['FILE_CLIENTES'][1])
+
+print(arquivo)
