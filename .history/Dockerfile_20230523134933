@@ -1,0 +1,1 @@
+docker run --name nome_contêiner -e POSTGRES_USER=seu_usuário -e POSTGRES_PASSWORD=sua_senha -e POSTGRES_DB=nome_banco_dados -p 5432:5432 -d postgres

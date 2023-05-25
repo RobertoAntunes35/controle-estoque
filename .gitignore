@@ -1,0 +1,6 @@
+# Diretorios
+venv/
+static_file/
+
+# Files
+.env
