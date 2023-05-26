@@ -37,8 +37,6 @@ for codigo, descricao, unidade, valor_custo, codigo_fornecedor, controle, comiss
 for codigo, nome in zip(vendedores.newArray[0], vendedores.newArray[1]):
     crudVendedores.createVendedor(codigo, nome)
 
-
-
 # Consultas
 crudFornecedor.read()
 crudCliente.read()
