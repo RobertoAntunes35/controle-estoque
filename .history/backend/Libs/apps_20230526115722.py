@@ -79,46 +79,19 @@ class CRUD:
 class ClientesCRUD(CRUD):
     def __init__(self, table) -> None:
         super().__init__(table)
-
     def handle_error(func):
-        def wrapper(*args, **kwargs):
-            try:
-                return func(*args, **kwargs)
-            except SQLAlchemyError as e:
-                print('Ocorreu um erro no SQLAlchemy: %s' % str(e))
-        return wrapper
+        return super().handle_error()
     
     @handle_error
     def createCliente(self, codigo, razao_social, nome_fantasia, cidade, vendedor_responsavel, dia_visita):
-        result = self.session.query(self.table).filter_by(codigo = codigo).first()
-
-        if result:
-            print('O valor %s já existe no banco.' % nome_fantasia)
-        else:
-            objetoCliente = self.table(
-                id=None,
-                codigo=int(codigo),
-                razao_social=str(razao_social),
-                nome_fantasia=str(nome_fantasia),
-                cidade=str(cidade),
-                vendedor_responsavel=str(vendedor_responsavel),
-                dia_visita=int(dia_visita)
-            )
-            self.session.add(objetoCliente)
-            self.session.commit()
-            print('Sucessfull about to insert the new Cliente with %s %s' % (codigo, nome_fantasia))
+        result = self.session.query(mysql.Produtos).filter_by(codigo = codigo).first()
 
 class ProdutosCRUD(CRUD):
     def __init__(self, table) -> None:
         super().__init__(table)
 
     def handle_error(func):
-        def wrapper(*args, **kwargs):
-            try:
-                return func(*args, **kwargs)
-            except SQLAlchemyError as e:
-                print('Ocorreu um erro no SQLAlchemy: %s' % str(e))
-        return wrapper
+        return super().handle_error()
 
     # def handle_error(func):
     #     def wrapper(*args, **kwargs):
@@ -131,11 +104,11 @@ class ProdutosCRUD(CRUD):
     @handle_error
     def createProduto(self, codigo, codigo_produto_completo, descricao, codigo_fornecedor, valor_custo, comissao, unidade, controle):
         # Primeiro, procurar pelo produto:
-        result = self.session.query(self.table).filter_by(codigo_completo=codigo_produto_completo).first()
+        result = self.session.query(mysql.Produtos).filter_by(codigo_produto_completo =codigo_produto_completo).first()
         if result:
-            print('O valor %s já existe no banco.' % descricao)
+            print('O produto %s já existe no banco.' % descricao)
         else:
-            objetoProduto = self.table(
+            objetoProduto = mysql.Produtos(
                 id=None,
                 codigo=int(codigo),
                 codigo_completo=int(codigo_produto_completo),
@@ -187,38 +160,9 @@ class VendedoresCRUD(CRUD):
     def __init__(self, table) -> None:
         super().__init__(table)
 
-    def handle_error(func):
-        def wrapper(*args, **kwargs):
-            try:
-                return func(*args, **kwargs)
-            except SQLAlchemyError as e:
-                print('Ocorreu um erro no SQLAlchemy: %s' % str(e))
-        return wrapper
-    
-    def createVendedor(self, codigo, nome):
-        result = self.session.query(mysql.Vendedores).filter_by(codigo = codigo).first()
-        if result:
-            print('O valor %s já existe no banco' % nome)
-        else:
-            objetoVendedor = self.table(
-                codigo=codigo,
-                nome=nome,
-            )
-            self.session.add(objetoVendedor)
-            self.session.commit()
-            print('Sucessfull about to insert the new Fonecedor with %s %s' % (codigo, nome))
-
 class PedidosCRUD(CRUD):
     def __init__(self, table) -> None:
         super().__init__(table)
-    
-    def handle_error(func):
-        def wrapper(*args, **kwargs):
-            try:
-                return func(*args, **kwargs)
-            except SQLAlchemyError as e:
-                print('Ocorreu um erro no SQLAlchemy: %s' % str(e))
-        return wrapper
         
 
 if __name__ == '__main__':

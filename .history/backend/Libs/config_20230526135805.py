@@ -44,7 +44,6 @@ FILES = [
                 'Combinação47':'codigo_fornecedor',
                 'Controle':'controle',
                 'Comissao':'comissao',
-                'Texto139':'codigo_completo'
             }
         ],
         'FILES_PEDIDOS':[

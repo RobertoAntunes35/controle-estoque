@@ -93,7 +93,7 @@ class ClientesCRUD(CRUD):
         result = self.session.query(self.table).filter_by(codigo = codigo).first()
 
         if result:
-            print('O valor %s já existe no banco.' % nome_fantasia)
+            print('O Clientes %s já existe no banco.' % nome_fantasia)
         else:
             objetoCliente = self.table(
                 id=None,
@@ -133,7 +133,7 @@ class ProdutosCRUD(CRUD):
         # Primeiro, procurar pelo produto:
         result = self.session.query(self.table).filter_by(codigo_completo=codigo_produto_completo).first()
         if result:
-            print('O valor %s já existe no banco.' % descricao)
+            print('O produto %s já existe no banco.' % descricao)
         else:
             objetoProduto = self.table(
                 id=None,

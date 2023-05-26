@@ -44,9 +44,6 @@ class Produtos(Base):
     unidade = Column(String(150))
     controle = Column(Boolean)
 
-    def __repr__(self):
-        return f'Id: {self.id} Código: {self.codigo} Descrição: {self.descricao}'
-
 class Estoque(Base):
     __tablename__ = 'estoque'
     id = Column(Integer, primary_key = True, autoincrement = True)

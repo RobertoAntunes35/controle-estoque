@@ -19,25 +19,15 @@ vendedores = app.Excel('\%s' % FILES[0]['FILE_VENDEDORES'][0], **FILES[0]['FILE_
 # Para a inclusão de fornecedores teremos:
 crudFornecedor = app.FornecedoresCRUD(mysql.Fornecedores)
 crudCliente = app.ClientesCRUD(mysql.Clientes)
-crudProduto = app.ProdutosCRUD(mysql.Produtos)
-crudVendedores = app.VendedoresCRUD(mysql.Vendedores)
 
-# Inserções e Verificações
-# Pensar em uma função assincrona
+# Inserção
 for codigo, descricao in zip(fornecedores.newArray[0], fornecedores.newArray[1]):
     crudFornecedor.createFornecedor(codigo, descricao)
 
 for codigo, razao_social, nome_fantasia, cidade, dia_visita, vendedor_responsavel in zip(clientes.newArray[0],clientes.newArray[1],clientes.newArray[2],clientes.newArray[3],clientes.newArray[4],clientes.newArray[5]):
-    crudCliente.createCliente(codigo, razao_social, nome_fantasia, cidade, vendedor_responsavel,dia_visita)
+    crudCliente.createCliente(codigo, razao_social, nome_fantasia, cidade, dia_visita, vendedor_responsavel)
 
-for codigo, descricao, unidade, valor_custo, codigo_fornecedor, controle, comissao, codigo_completo in zip(produtos.newArray[0],produtos.newArray[1], produtos.newArray[2], produtos.newArray[3], produtos.newArray[4], produtos.newArray[5], produtos.newArray[6], produtos.newArray[7]):
-    crudProduto.createProduto(codigo, codigo_completo, descricao, codigo_fornecedor, valor_custo, comissao, unidade, controle)
 
-for codigo, nome in zip(vendedores.newArray[0], vendedores.newArray[1]):
-    crudVendedores.createVendedor(codigo, nome)
 
-# Consultas
-crudFornecedor.read()
-crudCliente.read()
-crudProduto.read()
-crudVendedores.read()
+# Leitura
+# crudFornecedor.readFornecedor()

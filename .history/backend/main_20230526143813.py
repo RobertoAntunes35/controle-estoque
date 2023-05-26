@@ -41,3 +41,15 @@ crudFornecedor.read()
 crudCliente.read()
 crudProduto.read()
 crudVendedores.read()
+
+
+
+
+# codigo = Column(Integer)
+#     codigo_completo = Column(Integer)
+#     descricao = Column(String(150))
+#     codigo_fornecedor = Column(Integer)
+#     valor_custo = Column(Float)
+#     comissao = Column(Float)
+#     unidade = Column(String(150))
+#     controle = Column(Boolean)

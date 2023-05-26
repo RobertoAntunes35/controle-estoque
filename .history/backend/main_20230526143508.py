@@ -23,7 +23,6 @@ crudProduto = app.ProdutosCRUD(mysql.Produtos)
 crudVendedores = app.VendedoresCRUD(mysql.Vendedores)
 
 # Inserções e Verificações
-# Pensar em uma função assincrona
 for codigo, descricao in zip(fornecedores.newArray[0], fornecedores.newArray[1]):
     crudFornecedor.createFornecedor(codigo, descricao)
 
@@ -41,3 +40,15 @@ crudFornecedor.read()
 crudCliente.read()
 crudProduto.read()
 crudVendedores.read()
+
+
+
+
+# codigo = Column(Integer)
+#     codigo_completo = Column(Integer)
+#     descricao = Column(String(150))
+#     codigo_fornecedor = Column(Integer)
+#     valor_custo = Column(Float)
+#     comissao = Column(Float)
+#     unidade = Column(String(150))
+#     controle = Column(Boolean)

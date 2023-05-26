@@ -37,14 +37,13 @@ FILES = [
         'FILE_PRODUTOS':[
             'D04_Produto_Completo.xls',
             {
-                'D04_cod':'codigo_produto',
+                'D04_Cod':'codigo_produto',
                 'D04_Descricao':'descricao_produto',
                 'D04_UniPro':'unidade_produto',
                 'D04_Precom':'valor_custo_produto',
                 'Combinação47':'codigo_fornecedor',
                 'Controle':'controle',
                 'Comissao':'comissao',
-                'Texto139':'codigo_completo'
             }
         ],
         'FILES_PEDIDOS':[

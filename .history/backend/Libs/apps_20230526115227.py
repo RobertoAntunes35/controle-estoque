@@ -73,69 +73,30 @@ class CRUD:
         self.session.commit()
         print('Alteração Executada com sucesso.')
 
-    def delete(self, id):
-        pass 
-
 class ClientesCRUD(CRUD):
-    def __init__(self, table) -> None:
-        super().__init__(table)
-
-    def handle_error(func):
-        def wrapper(*args, **kwargs):
-            try:
-                return func(*args, **kwargs)
-            except SQLAlchemyError as e:
-                print('Ocorreu um erro no SQLAlchemy: %s' % str(e))
-        return wrapper
-    
-    @handle_error
-    def createCliente(self, codigo, razao_social, nome_fantasia, cidade, vendedor_responsavel, dia_visita):
-        result = self.session.query(self.table).filter_by(codigo = codigo).first()
-
-        if result:
-            print('O valor %s já existe no banco.' % nome_fantasia)
-        else:
-            objetoCliente = self.table(
-                id=None,
-                codigo=int(codigo),
-                razao_social=str(razao_social),
-                nome_fantasia=str(nome_fantasia),
-                cidade=str(cidade),
-                vendedor_responsavel=str(vendedor_responsavel),
-                dia_visita=int(dia_visita)
-            )
-            self.session.add(objetoCliente)
-            self.session.commit()
-            print('Sucessfull about to insert the new Cliente with %s %s' % (codigo, nome_fantasia))
+    def __init__(self) -> None:
+        super().__init__() 
 
 class ProdutosCRUD(CRUD):
-    def __init__(self, table) -> None:
-        super().__init__(table)
+    def __init__(self) -> None:
+        super().__init__()
 
     def handle_error(func):
         def wrapper(*args, **kwargs):
             try:
                 return func(*args, **kwargs)
             except SQLAlchemyError as e:
-                print('Ocorreu um erro no SQLAlchemy: %s' % str(e))
-        return wrapper
-
-    # def handle_error(func):
-    #     def wrapper(*args, **kwargs):
-    #         try:
-    #             return func(*args, **kwargs)
-    #         except SQLAlchemyError as e:
-    #             print('Ocorreu um erro no SQLAchemy: %s' % str(e))
-    #         return (wrapper)
+                print('Ocorreu um erro no SQLAchemy: %s' % str(e))
+            return (wrapper)
 
     @handle_error
     def createProduto(self, codigo, codigo_produto_completo, descricao, codigo_fornecedor, valor_custo, comissao, unidade, controle):
         # Primeiro, procurar pelo produto:
-        result = self.session.query(self.table).filter_by(codigo_completo=codigo_produto_completo).first()
+        result = self.session.query(mysql.Produtos).filter_by(codigo_produto_completo).first()
         if result:
-            print('O valor %s já existe no banco.' % descricao)
+            print('O produto %s já existe no banco.' % descricao)
         else:
-            objetoProduto = self.table(
+            objetoProduto = mysql.Produtos(
                 id=None,
                 codigo=int(codigo),
                 codigo_completo=int(codigo_produto_completo),
@@ -183,42 +144,41 @@ class FornecedoresCRUD(CRUD):
             self.session.commit()
             print('Sucessfull about to insert the new Fonecedor with %s %s' % (codigo, descricao))
 
-class VendedoresCRUD(CRUD):
-    def __init__(self, table) -> None:
-        super().__init__(table)
-
-    def handle_error(func):
-        def wrapper(*args, **kwargs):
-            try:
-                return func(*args, **kwargs)
-            except SQLAlchemyError as e:
-                print('Ocorreu um erro no SQLAlchemy: %s' % str(e))
-        return wrapper
-    
-    def createVendedor(self, codigo, nome):
-        result = self.session.query(mysql.Vendedores).filter_by(codigo = codigo).first()
-        if result:
-            print('O valor %s já existe no banco' % nome)
+'''
+    @handle_error
+    def readFornecedor(self, *args):
+        For to choice a specific vale, you can to put one or more values to COLUMN codigo 
+        if args:
+            for i, arg in enumerate(args):
+                
+                result = self.session.query(mysql.Fornecedores).filter(mysql.Fornecedores.codigo == arg).first()
+                if not result:
+                    print(f'O valor {arg} não está contido no banco')
+                    continue
+                print(result)
+                
         else:
-            objetoVendedor = self.table(
-                codigo=codigo,
-                nome=nome,
-            )
-            self.session.add(objetoVendedor)
-            self.session.commit()
-            print('Sucessfull about to insert the new Fonecedor with %s %s' % (codigo, nome))
+            result = self.session.query(mysql.Fornecedores).all()
+            for row in result:
+                print(row)
+
+    @handle_error
+    def updateFornecedor(self, id, **kwargs):
+        Para atualizar um valor, você precisará de um dicionário, que contenha a COLUNA  seguida do VALOR
+        if not id:
+            raise TypeError('Você precisa selecionar os IDS para alterar os valores')
+        self.session.query(mysql.Fornecedores).filter_by(id = id).update(kwargs)
+        self.session.commit()
+        print('Alteração executada com sucesso.')
+'''
+class VendedoresCRUD(CRUD):
+    def __init__(self) -> None:
+        super().__init__()
+
 
 class PedidosCRUD(CRUD):
     def __init__(self, table) -> None:
         super().__init__(table)
-    
-    def handle_error(func):
-        def wrapper(*args, **kwargs):
-            try:
-                return func(*args, **kwargs)
-            except SQLAlchemyError as e:
-                print('Ocorreu um erro no SQLAlchemy: %s' % str(e))
-        return wrapper
         
 
 if __name__ == '__main__':
@@ -232,6 +192,9 @@ if __name__ == '__main__':
 
     crud_Fornecedor = FornecedoresCRUD(mysql.Fornecedores)
 
+    crud_Fornecedor.update(22, {
+        'codigo':10
+    })
 
 
     
