@@ -56,7 +56,7 @@ class CRUD:
         if args:
             for i, arg in enumerate(args):
                 global result
-                result = self.session.query(self.table).filter_by(codigo = arg).first()
+                result = self.session.query(self.table).filter_by(self.table.codigo = arg).first()
                 if not result:
                     print(f'O valor {arg} não está contido no banco!')
                     continue

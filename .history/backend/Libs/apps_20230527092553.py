@@ -53,15 +53,16 @@ class CRUD:
     @handle_error
     def read(self, *args):
         '''Buscar pela tabela CODIGO sempre'''
+        result = 0
         if args:
             for i, arg in enumerate(args):
-                global result
-                result = self.session.query(self.table).filter_by(codigo = arg).first()
+                result = self.session.query(self.table).filter_by(self.table.codigo == arg).first()
                 if not result:
                     print(f'O valor {arg} não está contido no banco!')
                     continue
                 print(result)
             return result
+    
         else:
             result = self.session.query(self.table).all()
             for row in result:

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <div class="container">
+        <form action="" method="">
+            <h2>Inserção de Produtos em Estoque</h2>
+            <div class="busca-produtos">
+                <label for="codigo-produto">Código Produto Completo</label>
+                <input value="" name="codigo-produto" id="codigo-produto" type="number">
+                <a href="#">Buscar</a>
+                <ol>
+                    {% for i in produtos %}
+                    <li>{{ i }}</li>
+                    {% endfor %}
+                </ol>
+            </div>
+            <label for="nome-produto">Descrição</label>
+            <input type="text" id="nome-produto" name="nome-produto">
+        </form>
+    </div>
+</body>
+</html> 
