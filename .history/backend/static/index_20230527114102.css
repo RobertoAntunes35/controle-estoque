@@ -1,0 +1,31 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+form {
+    border: 1px solid;
+}
+
+.container {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+
+    border: 1px solid;
+}
+
+.search-product{
+    border: 1px solid;
+}
+.values-find{
+    border: 1px solid;
+}
+
+.choices-values{
+    border: 1px solid;
+}
+

@@ -1,0 +1,28 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100vw;
+    height: 100vh;
+}
+
+.search-product{
+    border: 1px solid;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.values-find{
+
+}
+
+.choices-values{
+
+}
+

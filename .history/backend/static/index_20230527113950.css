@@ -1,0 +1,25 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.search-product{
+    border: 1px solid;
+}
+.values-find{
+    border: 1px solid;
+}
+
+.choices-values{
+
+}
+
