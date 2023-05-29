@@ -66,6 +66,34 @@ class EstoqueProvisorio(Base):
     data_vencimento = Column(DateTime)
     quantidade = Column(Integer)
 
+
+
+Pedido = {
+    'id':'37243',
+    'cliente':{
+        'CodigoCliente':1,
+        'Endereco':'AV 29, 693 FUNDOS',
+        'Cidade':'Rio Claro'
+    },
+    'codigo_vendedor':10,
+    'tipo_pagamento':'A vista',
+    'itens': {
+        'item1': {
+            'descricao':'ACQUISSIMA 1,5L S/ GAS C/06 UN',
+            'quantidade':10,
+            'valor_unidade':1.5,
+            'valor_total':'valor_unidade' * 'quantidade'
+        }
+    }
+}
+
+
+
+class PedidoProvisorio(Base):
+    __tablename__ = 'pedidoProvisorio'
+    id = Column(SmallInteger, primary_key = True, autoincrement = True)
+    codigo
+
 class Tabela(Base):
     __tablename__='tabela'
     id = Column(SmallInteger, primary_key = True, autoincrement = True)

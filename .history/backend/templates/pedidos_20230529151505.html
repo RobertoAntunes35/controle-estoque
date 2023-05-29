@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{url_for('static', filename='script.js')}}"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Inserção de Produto</h2>
+        <div class="cabecario-clientes">
+
+            <label for="">Código Pedido
+                <input type="text" name="codigo-pedido" id="codigo-pedido">
+            </label>
+
+            <label for="">Codigo Cliente
+            <input type="text" id="codigo-cliente" name="codigo-cliente" placeholder="Código Cliente" value="{{cliente.codigo}}"></label>
+            <a href="#" onclick="busca_cliente()">Buscar Cliente</a>
+
+            <label for="">Descrição
+                <input type="text" id="descricao" name="descricao" placeholder="Descrição Cliente" value="{{cliente.nome_fantasia}}"></label>
+
+            <label for="">Endereço
+                <input type="text" name="endereco" id="endereco" placeholder="Endereço">
+            </label>
+            
+            <label for="">Cidade
+                <input type="text" name="cidade" id="cidade" placeholder="Endereço" value="{{cliente.cidade}}">
+            </label>
+
+            <label for="">Codigo Vendedor</label>
+                <input type="text" id="vendedor-cliente" name="vendedor-cliente" placeholder="Código Vendedor" value="{{cliente.vendedor_responsavel}}">
+            </label>
+        </div>
+
+        <div class="itens-pedido">
+            <div class="busca-produto">
+                <label for="">Código Produto
+                    <input type="text" name="codigo-produto" id="codigo-produto">
+                </label>
+                <a href="{{url_for('exibir_cliente')}}" id="busca-produto" >Procurar Produto</a>
+            </div>
+
+            <label for="">Descrição Produto
+                <input type="text" name="descricao-produto" id="descricao-produto" value="{{item.descricao}}">
+            </label>
+            <label for="">Quantidade Produto
+                <input type="text" name="quantidade-produto" id="quantidade-produto">
+            </label>
+            <label for="">Valor
+                <input type="text" name="valor-produto" id="valor-produto">
+            </label>
+        </div>
+    </div>
+</body>
+</html>

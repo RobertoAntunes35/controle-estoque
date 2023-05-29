@@ -51,8 +51,27 @@ for codigo, nome in zip(vendedores.newArray[0], vendedores.newArray[1]):
 # crudVendedores.read()
 
 @app.route('/teste')
-def home():
-    return render_template('index.html')
+def exibir_cliente():
+    codigo = request.args.get('cliente_id')
+    info = crudCliente.read(codigo)
+    print(info)
+    return render_template('pedidos.html', cliente = info)
+
+@app.route('/teste/<item_id>')
+def exibir_item(item_id):
+    if item_id is None:
+        item = "Sem item"
+    
+    codigo = request.args.get('item_id')
+    info = crudProduto.read(codigo)
+    print(info)
+
+
+    return render_template('pedidos.html', item = info)
+
+@app.route("/teste")
+def index():
+    return render_template('pedidos.html')
 
 Pedido = {
     'id':'37243',

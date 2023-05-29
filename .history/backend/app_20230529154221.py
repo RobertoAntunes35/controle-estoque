@@ -52,7 +52,7 @@ for codigo, nome in zip(vendedores.newArray[0], vendedores.newArray[1]):
 
 @app.route('/teste')
 def home():
-    return render_template('index.html')
+    return render_template(index.html)
 
 Pedido = {
     'id':'37243',

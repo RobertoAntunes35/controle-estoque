@@ -66,6 +66,7 @@ class EstoqueProvisorio(Base):
     data_vencimento = Column(DateTime)
     quantidade = Column(Integer)
 
+
 class Tabela(Base):
     __tablename__='tabela'
     id = Column(SmallInteger, primary_key = True, autoincrement = True)

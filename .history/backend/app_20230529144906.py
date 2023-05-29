@@ -1,7 +1,7 @@
 import os 
 import sys 
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.join(current_dir, 'Libs'))
@@ -25,8 +25,6 @@ crudFornecedor = apps.FornecedoresCRUD(mysql.Fornecedores)
 crudCliente = apps.ClientesCRUD(mysql.Clientes)
 crudProduto = apps.ProdutosCRUD(mysql.Produtos)
 crudVendedores = apps.VendedoresCRUD(mysql.Vendedores)
-crudEstoqueProvisorio = apps.EstoqueProvisorio(mysql.EstoqueProvisorio)
-
 
 # Inserções e Verificações
 # Pensar em uma função assincrona
@@ -50,9 +48,16 @@ for codigo, nome in zip(vendedores.newArray[0], vendedores.newArray[1]):
 # crudProduto.read()
 # crudVendedores.read()
 
-@app.route('/teste')
-def home():
-    return render_template('index.html')
+
+@app.route('/teste/<item_id>')
+def exibir_item(item_id):
+    
+
+    return render_template('pedidos.html', item = item)
+
+@app.route("/teste")
+def index():
+    return render_template('pedidos.html')
 
 Pedido = {
     'id':'37243',
