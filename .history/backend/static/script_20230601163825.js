@@ -1,4 +1,11 @@
 
+function busca_produto () {
+    var itemID = document.getElementById("codigo-produto").value;
+    var url = "/teste?item_id=" + encodeURIComponent(itemID);
+    window.location.href = url;
+    console.log(itemID)
+}
+
 $(document).ready(function() {
     $('#btnBuscar').click(function(event) {
         event.preventDefault();
@@ -7,14 +14,15 @@ $(document).ready(function() {
         console.log(inputValue);
 
     $.ajax({
-        url: '/busca_produtos',
+        url: '/atualizar_input',
         type: 'POST',
         data: {codigoProduto: inputValue},
         success: function(date) {
             $('#descricao').val(date.updatedValue.descricao)
             $('#codigoFornecedor').val(date.updatedValue.codigoFornecedor)
-            $('#unidade').val(date.updatedValue.unidade)
+            $('#unidade').val(response.updatedValue.unidade)
         }
-    });
-    });
-});
+    })
+    
+})
+})

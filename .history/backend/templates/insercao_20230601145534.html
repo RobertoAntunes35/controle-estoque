@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>Formulário de Inserção de Produtos</title>
+</head>
+<body>
+
+  <div class="container mt-4">
+    <h1>Formulário de Inserção de Produtos</h1>
+    <form>
+      <div class="form-group">
+        <label for="codigo">Código:</label>
+        <input type="text" class="form-control" id="codigo" name="codigo" required>
+      </div>
+      <div class="form-group">
+        <label for="descricao">Descrição:</label>
+        <input type="text" class="form-control" id="descricao" name="descricao" required>
+      </div>
+      <div class="form-group">
+        <label for="quantidade">Quantidade:</label>
+        <input type="number" class="form-control" id="quantidade" name="quantidade" required>
+      </div>
+      <div class="form-group">
+        <label for="lote">Lote:</label>
+        <input type="text" class="form-control" id="lote" name="lote" required>
+      </div>
+      <div class="form-group">
+        <label for="dataRegistro">Data de Registro:</label>
+        <input type="date" class="form-control" id="dataRegistro" name="dataRegistro" required>
+      </div>
+      <div class="form-group">
+        <label for="dataVencimento">Data de Vencimento:</label>
+        <input type="date" class="form-control" id="dataVencimento" name="dataVencimento" required>
+      </div>
+      <div class="form-group">
+        <label for="tipoEntrada">Tipo de Entrada:</label>
+        <select class="form-control" id="tipoEntrada" name="tipoEntrada" required>
+          <option value="">Selecione</option>
+          <option value="1">Entrada 1</option>
+          <option value="2">Entrada 2</option>
+          <option value="3">Entrada 3</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Inserir Produto</button>
+    </form>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

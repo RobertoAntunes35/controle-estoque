@@ -58,14 +58,14 @@ def home():
 def insercao_estoque():
     return render_template('insercao.html')
 
-@app.route('/busca_produtos', methods=['GET', 'POST'])
-def busca_produtos():
+@app.route('/atualizar_input', methods=['GET', 'POST'])
+def atualizar_input():
     value_codigo = request.form['codigoProduto']
     produto = crudProduto.read(value_codigo)
+    descricao = produto.descricao
+    print(descricao)
     return jsonify({'updatedValue': {
         'descricao':produto.descricao,
-        'codigoFornecedor':produto.codigo_fornecedor,
-        'unidade':produto.unidade
     }})
 
 if __name__ == '__main__':

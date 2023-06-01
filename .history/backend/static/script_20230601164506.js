@@ -7,14 +7,15 @@ $(document).ready(function() {
         console.log(inputValue);
 
     $.ajax({
-        url: '/busca_produtos',
+        url: '/atualizar_input',
         type: 'POST',
         data: {codigoProduto: inputValue},
         success: function(date) {
             $('#descricao').val(date.updatedValue.descricao)
             $('#codigoFornecedor').val(date.updatedValue.codigoFornecedor)
-            $('#unidade').val(date.updatedValue.unidade)
+            $('#unidade').val(response.updatedValue.unidade)
         }
     });
+    
     });
 });

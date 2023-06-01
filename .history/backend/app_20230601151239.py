@@ -1,7 +1,7 @@
 import os 
 import sys 
 
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.join(current_dir, 'Libs'))
@@ -58,15 +58,9 @@ def home():
 def insercao_estoque():
     return render_template('insercao.html')
 
-@app.route('/busca_produtos', methods=['GET', 'POST'])
-def busca_produtos():
-    value_codigo = request.form['codigoProduto']
-    produto = crudProduto.read(value_codigo)
-    return jsonify({'updatedValue': {
-        'descricao':produto.descricao,
-        'codigoFornecedor':produto.codigo_fornecedor,
-        'unidade':produto.unidade
-    }})
+def atualizar_input():
+    link_value = request.form['linkValue']
+    print(link_value)
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5000, debug=True)

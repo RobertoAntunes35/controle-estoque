@@ -7,7 +7,7 @@ $(document).ready(function() {
         console.log(inputValue);
 
     $.ajax({
-        url: '/busca_produtos',
+        url: '/atualizar_input',
         type: 'POST',
         data: {codigoProduto: inputValue},
         success: function(date) {
@@ -16,5 +16,6 @@ $(document).ready(function() {
             $('#unidade').val(date.updatedValue.unidade)
         }
     });
+    
     });
 });

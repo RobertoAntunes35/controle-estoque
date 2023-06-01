@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Formulário de Inserção de Produtos</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h2>Formulário de Inserção de Produtos</h2>
+    <form>
+      <div class="form-group">
+        <label for="codigo">Código:</label>
+        <div class="input-group">
+          <input type="text" class="form-control" id="codigo" name="codigo">
+          <div class="input-group-append">
+            <a href="#" class="btn btn-primary" id="btnBuscar">Buscar</a>
+            <!-- <button class="btn btn-primary" type="button" id="btnBuscar">Buscar</button> -->
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="descricao">Descrição:</label>
+        <input type="text" class="form-control" id="descricao" name="descricao">
+      </div>
+      <div class="form-group">
+        <label for="quantidade">Quantidade:</label>
+        <input type="number" class="form-control" id="quantidade" name="quantidade">
+      </div>
+      <div class="form-group">
+        <label for="lote">Lote:</label>
+        <input type="text" class="form-control" id="lote" name="lote">
+      </div>
+      <div class="form-group">
+        <label for="dataRegistro">Data de Registro:</label>
+        <input type="date" class="form-control" id="dataRegistro" name="dataRegistro">
+      </div>
+      <div class="form-group">
+        <label for="dataVencimento">Data de Vencimento:</label>
+        <input type="date" class="form-control" id="dataVencimento" name="dataVencimento">
+      </div>
+      <div class="form-group">
+        <label for="tipoEntrada">Tipo de Entrada:</label>
+        <select class="form-control" id="tipoEntrada" name="tipoEntrada">
+          <option value="entrada1">Entrada 1</option>
+          <option value="entrada2">Entrada 2</option>
+          <option value="entrada3">Entrada 3</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Inserir</button>
+    </form>
+  </div>
+
+  <script>
+    $(document).ready(function() {
+        $('#btnBuscar').click(function(event) {
+            event.preventDefault();
+
+            var linkValue = $(this).text();
+
+            $.ajax({
+                url: '/atualizar_input',
+                type: 'POST',
+                data: {linkValue: linkValue},
+                success: function(response) {
+                    $('#descricao').val(response.updatedValue);
+                }
+            });
+        });
+    })
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
