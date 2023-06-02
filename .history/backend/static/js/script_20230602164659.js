@@ -19,12 +19,15 @@ $(document).ready(function() {
     });
 });
 
-
-function verificarEnter(event) {
-    if(event.keyCode === 13) {
+$(document).ready(function () {
+    $('#submit-form-envio').click(function(event) {
         event.preventDefault();
+    })
+    $('#btnBuscar').click()
+})
 
-        var botao = document.getElementById("btnBuscar")
-        botao.click();
+function verificarClickEnterEtirarSubmit(event) {
+    if (event.keyCode == 13) {
+        event.
     }
 }

@@ -18,13 +18,3 @@ $(document).ready(function() {
     });
     });
 });
-
-
-function verificarEnter(event) {
-    if(event.keyCode === 13) {
-        event.preventDefault();
-
-        var botao = document.getElementById("btnBuscar")
-        botao.click();
-    }
-}

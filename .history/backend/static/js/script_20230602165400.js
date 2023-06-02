@@ -24,7 +24,7 @@ function verificarEnter(event) {
     if(event.keyCode === 13) {
         event.preventDefault();
 
-        var botao = document.getElementById("btnBuscar")
+        var botao = document.getElementById("#btnBuscar")
         botao.click();
     }
 }

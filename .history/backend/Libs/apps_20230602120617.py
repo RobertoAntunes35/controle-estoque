@@ -88,10 +88,10 @@ class EstoqueCRUD(CRUD):
             try:
                 return func(*args, **kwargs)
             except SQLAlchemyError as e:
-                print('Ocorreu um erro no SQLAlchemy: %s' % str(e))
-        return wrapper
+                print('Ocorreu um erro no SQLAlchmey: %' % str(e))
+            return wrapper
 
-    def createEstoque(self, codigo, descricao,codigo_fornecedor, unidade, quantidade, lote, data_registro, data_vencimento, tipo_entrada):
+    def createEstoque(self, codigo, descricao, quantidade, lote, data_registro, data_vencimento, tipo_entrada):
         objetoEstoque = self.table(
             id = None, 
             codigo = codigo,
@@ -101,13 +101,10 @@ class EstoqueCRUD(CRUD):
             data_registro = data_registro,
             data_vencimento = data_vencimento,
             tipo_entrada = tipo_entrada,
-            codigo_fornecedor = codigo_fornecedor, 
-            unidade=unidade
         )
         self.session.add(objetoEstoque)
         self.session.commit()
         print('Sucessfull about to insert the new product with %s %s' % (codigo, descricao))
-        
 
 class ClientesCRUD(CRUD):
     def __init__(self, table) -> None:
@@ -182,25 +179,6 @@ class ProdutosCRUD(CRUD):
             self.session.add(objetoProduto)
             self.session.commit()
             print('Sucessfull about to insert the new Produto with %s %s' % (codigo, descricao))
-
-    @handle_error
-    def read(self, *args):
-        '''Buscar pela tabela CODIGO sempre'''
-        if args:
-            for i, arg in enumerate(args):
-                global result
-                result = self.session.query(self.table).filter_by(codigo_completo = arg).first()
-                if not result:
-                    print(f'O valor {arg} não está contido no banco!')
-                    continue
-                print(result)
-            return result
-        else:
-            result = self.session.query(self.table).all()
-            for row in result:
-                print(row)
-            return result
-
 
 class FornecedoresCRUD(CRUD):
     def __init__(self, table) -> None:

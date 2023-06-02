@@ -7,29 +7,29 @@
       <div class="form-group">
         <label for="codigo">Código Completo:</label>
         <div class="input-group">
-          <input type="text" class="form-control" id="codigo" name="codigo" onkeydown="verificarEnter(event)">
+          <input type="text" class="form-control" id="codigo" name="codigo">
           <div class="input-group-append">
-            <a href="#" class="btn btn-primary" id="btnBuscar" name="btnBuscar">Buscar</a>
+            <a href="#" class="btn btn-primary" id="btnBuscar">Buscar</a>
           </div>
         </div>
       </div>
       <div class="form-group">
         <label for="descricao">Descrição:</label>
-        <input type="text" class="form-control" id="descricao" name="descricao">
+        <input type="text" class="form-control" id="descricao" name="descricao" required>
       </div>
 
       <div class="form-group">
         <label for="codigoFornecedor">Codigo Fornecedor:</label>
-        <input type="text" class="form-control" id="codigoFornecedor" name="codigoFornecedor" >
+        <input type="text" class="form-control" id="codigoFornecedor" name="codigoFornecedor" required>
       </div>
 
       <div class="form-group">
         <label for="unidade">Unidade:</label>
-        <input type="text" class="form-control" id="unidade" name="unidade">
+        <input type="text" class="form-control" id="unidade" name="unidade" required>
       </div>
       <div class="form-group">
         <label for="quantidade">Quantidade:</label>
-        <input type="number" class="form-control" id="quantidade" name="quantidade">
+        <input type="number" class="form-control" id="quantidade" name="quantidade" required>
       </div>
       <div class="form-group">
         <label for="lote">Lote:</label>
@@ -37,21 +37,21 @@
       </div>
       <div class="form-group">
         <label for="dataRegistro">Data de Registro:</label>
-        <input type="date" class="form-control" id="dataRegistro" name="dataRegistro">
+        <input type="date" class="form-control" id="dataRegistro" name="dataRegistro" required>
       </div>
       <div class="form-group">
         <label for="dataVencimento">Data de Vencimento:</label>
-        <input type="date" class="form-control" id="dataVencimento" name="dataVencimento">
+        <input type="date" class="form-control" id="dataVencimento" name="dataVencimento" required>
       </div>
       <div class="form-group">
         <label for="tipoEntrada">Tipo de Entrada:</label>
-        <select class="form-control" id="tipoEntrada" name="tipoEntrada">
+        <select class="form-control" id="tipoEntrada" name="tipoEntrada" required>
           <option value="entrada1">Entrada 1</option>
           <option value="entrada2">Entrada 2</option>
           <option value="entrada3">Entrada 3</option>
         </select>
       </div>
-      <button type="submit" class="btn btn-primary" id="submit-form-envio">Inserir</button>
+      <button type="submit" class="btn btn-primary">Inserir</button>
     </form>
   </div>
 </body>

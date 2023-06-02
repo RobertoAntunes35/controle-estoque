@@ -19,12 +19,9 @@ $(document).ready(function() {
     });
 });
 
+$(document).ready(function (event) {
 
-function verificarEnter(event) {
-    if(event.keyCode === 13) {
-        event.preventDefault();
-
-        var botao = document.getElementById("btnBuscar")
-        botao.click();
-    }
-}
+   if (event.keyCode === 13) {
+    event.preventDefault();
+   }
+})
