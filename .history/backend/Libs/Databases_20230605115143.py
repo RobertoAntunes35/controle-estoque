@@ -22,13 +22,14 @@ Session = sessionmaker(bind = engine)
 Base = declarative_base()
 
 # Conexão MONGODB
-from pymongo import MongoClient
+from pymongo import MongoCliente
 
-# Crie um cliente MongoDB
-client = MongoClient("mongodb://localhost:27017/")
+cliente = MongoCliente('mongodb://{localhost}:{port}'.format(
+    localhost = env_vars['MONGO_HOST'],
+    port = env_vars['MONGO_PORT']
+))
+
+db = cliente[env_vars['MONGO_DATABASE']]
 
 
-db = client[env_vars['MONGO_DATABASE']]
 
-
-collection = db['orders']

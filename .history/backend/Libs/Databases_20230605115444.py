@@ -32,3 +32,6 @@ db = client[env_vars['MONGO_DATABASE']]
 
 
 collection = db['orders']
+documento = {'chave':'valor'}
+
+collection.insert_one(documento)

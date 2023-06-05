@@ -32,3 +32,16 @@ db = client[env_vars['MONGO_DATABASE']]
 
 
 collection = db['orders']
+Pedido = {
+    'ClienteCode':1,
+    'cliente':'Balcao',
+    'products':{
+        'firstProduct':{
+            'name':'Abc',
+            'Quantidade':10,
+            'valorVenda':15.00,
+            'valorTotal': 150.00
+        },
+    }
+}
+collection.insert_one(Pedido)

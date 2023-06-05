@@ -28,7 +28,10 @@ from pymongo import MongoClient
 client = MongoClient("mongodb://localhost:27017/")
 
 
-db = client[env_vars['MONGO_DATABASE']]
+db = cliente[env_vars['MONGO_DATABASE']]
 
 
 collection = db['orders']
+documento = {'chave':'valor'}
+
+collection.insert_one(documento)
