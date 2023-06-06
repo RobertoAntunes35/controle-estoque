@@ -1,0 +1,8 @@
+.data-clientes .buscar {
+    display: flex;
+    gap: 1rem;
+}
+
+.content-geracao-pedido {
+    display: flex;
+}

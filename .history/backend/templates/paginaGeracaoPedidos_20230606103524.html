@@ -1,0 +1,32 @@
+{% extends "index.html" %}
+
+{% block title %} Geração Pedidos {% endblock %}
+
+{% block content %}
+<div class="content-geracao-pedido">
+        <form action="">
+            <div class="data-clientes form-control">
+                <div class="buscar">
+
+                    <label class="form-check-label" for="">Codigo Cliente</label>
+                    <input class="form-control" type="text" name="codigoCliente" id="codigoCliente" placeholder="Codigo Cliente ...">
+                    <a href="#" class="btn btn-dark">Buscar Cliente</a>
+                </div>
+
+                <label for="">Nome Fantasia</label>
+                <input class="form-control" type="text" name="nomeFantasia" id="nomeFantasia">
+
+                <label for="">Endereço</label>
+                <input class="form-control" type="text" name="enderecoCliente" id="enderecoCliente">
+
+                <label for="">Cidade</label>
+                <input type="text" name="cidadeCliente" id="cidadeCliente">
+
+                <label for="">Data Entrega</label>
+                <input type="date" name="dataEntrega" id="dataEntrega">
+                
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

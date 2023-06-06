@@ -1,0 +1,85 @@
+{% extends "index.html" %}
+
+{% block title %} Geração Pedidos {% endblock %}
+
+{% block content %}
+<div class="content-geracao-pedido">
+        <form action="">
+            <div class="data-clientes form-control">
+                <div class="buscar form-control">
+                    <label class="form-check-label" for="">Codigo Cliente</label>
+                    <input class="form-control" type="text" name="codigoCliente" id="codigoCliente" placeholder="Codigo Cliente ...">
+                    <a href="#" class="btn btn-dark">Buscar Cliente</a>
+                </div>
+
+                <div class="datas-cliente form-control">
+                    <label for="">Nome Fantasia</label>
+                    <input class="form-control" type="text" name="nomeFantasia" id="nomeFantasia">
+    
+                    <label for="">Endereço</label>
+                    <input class="form-control" type="text" name="enderecoCliente" id="enderecoCliente">
+    
+                    <label for="">Cidade</label>
+                    <input class="form-control" type="text" name="cidadeCliente" id="cidadeCliente">
+    
+                    <label for="">Data Entrega</label>
+                    <input class="form-control" type="date" name="dataEntrega" id="dataEntrega">
+                </div>
+            </div>
+            <div class="produtos">
+                <div class="busca-produtos form-control">
+                    <div class="busca form-control">
+                        <label for="">Código Produto</label>
+                        <input class="" type="text" name="codigoProduto" id="codigoProduto">
+                        <button class="btn" id="btnBuscaProduto" name="btnBuscaProduto">Buscar Produto</button>
+                    </div>
+                    <div class="dados-produtos form-control">
+                        <label for="">Descrição Produto</label>
+                        <input type="text" name="descricaoProduto" id="descricaoProduto">
+                        
+                        <label for="">Valor Venda</label>
+                        <input type="number" name="valorVenda" id="valorVenda">
+                        
+                        <label for="">Unidade</label>
+                        <input type="text" name="unidadeProduto" id="unidadeProduto">
+
+                        <label for="">Quantidade</label>
+                        <input type="number">
+                    </div>
+                    <button class="btn btn-danger">Adicionar Produto</button>
+                </div>
+
+
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Codigo Produto</th>
+                            <th scope="col">Nome Produto</th>
+                            <th scope="col">Quantidade</th>
+                            <th scope="col">Unidade</th>
+                            <th scope="col">Valor Total</th>
+                            <th scope="col">Editar</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>254</td>
+                            <td>VINHO BELTRAME SUAVE 6X1L</td>
+                            <td>10</td>
+                            <td>FD</td>
+                            <td>R$620.00</td>
+                            <td><a href="#">Editar</a></td>
+                        </tr>
+                    </tbody>
+
+                </table>
+                
+            </div>
+
+        </form>
+    </div>
+
+{% endblock %}
